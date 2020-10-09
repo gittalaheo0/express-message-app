@@ -1,0 +1,46 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Pompiere', cursive;
+	/* font-weight: 500; */
+}
+body{
+	background: #fff;
+	overflow: hidden
+}
+/* scrooll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00bcd41c; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00bcd461; 
+}
+body{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+a{
+	display: inline-block;
+	color: #111;
+	/* text-decoration: none; */
+}
+li{
+	list-style: none
+}
+input{
+	border: 0;
+	outline: 0;
+}

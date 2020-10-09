@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<%if (isMe) { %>
+		<title>Me</title>
+	<% } %>
+	<%if (!isMe) { %>
+		<title><%=user.name%></title>
+	<% } %>
+	<link rel="stylesheet" href="http://localhost:3000/css/avartar.css">
+</head>
+<body>
+	<%- include ("../layout/head.ejs") %>
+	<div class="profile">
+		<div class="profile_avartar">
+			<%if (user.infor.img.length == 0) { %>
+				<img src="http://localhost:3000/image/user.svg" alt="">
+			<% } %>
+			<%if (user.infor.img.length != 0) { %>
+				<img src=<%=user.infor.img%>>
+			<% } %>
+	 		<form action="/users/setting/avartar" method="post" enctype="multipart/form-data">
+  				<input class="custom-file-input" type="file" name="avatar" />
+  				<button>Update</button>
+			</form>
+			<p class="profile_avartar_name"><%=user.name%></p>
+			<%if (!isMe) { %>
+				<a href="/chat?id=<%= user.id %>" class="user_list_item_message">
+					<img src="../image/chat.png"alt="">
+				</a>
+			<% } %>
+
+		</div>
+		<div class="profile_info">
+			<%if (user.infor.intro.length == 0) { %>
+				<p class="profile_info_main">Let's talk!!</p>
+			<% } %>
+			<%if (user.infor.intro.length != 0) { %>
+				<p class="profile_info_main"><%=user.infor.intro%></p>
+			<% } %>
+		</div>
+	</div>
+</body>
+</html>

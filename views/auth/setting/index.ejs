@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="http://localhost:3000/css/login.css">
+</head>
+<body>
+<%- include ("../../layout/head.ejs") %>
+<div class="container">
+  <form action="/users/setting/save" method="POST">
+    <div class="row">
+      <h2 style="text-align:center;">Setting</h2>
+      <div class="col" style="width: 100%">
+        <input type="text" name="name" placeholder="Username" value="<%- myInfo.name %>">
+        <input type="textarea" name="information" placeholder="infor" style='height: 7rem' value="<%- myInfo.infor.intro %>" required>
+        <input type="submit" value="Save change">
+      </div>
+      
+    </div>
+  </form>
+</div>	
+  <script type="text/javascript" src="../../js/header.js"></script>
+
+</body>
+</html>

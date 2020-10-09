@@ -1,0 +1,70 @@
+	<header>
+		<div class="logo">
+			<a href="/">Mesapp</a>
+		</div>
+		<ul class="menu">
+			<li class="menu_item"><a href="/">HOME</a></li>
+			<li class="menu_item"><a href="/users">USER</a></li>
+			<li class="menu_item"><a href="https://www.facebook.com/vietanh.dzai.t/">AUTHOR</a></li>
+		</ul>
+		<div class="click">Mode</div>
+		<div class="avartar">
+			<span class="avartar_img">
+				<img src="http://lorempixel.com/300/300/cats">
+
+			</span>
+			<ul class="avartar_menu">
+				<li class="avartar_menu_item"><a href="/users/me">My Page</a></li>
+				<li class="avartar_menu_item"><a href="/users/setting">Setting</a></li>
+				<li class="avartar_menu_item"><a href="/login">Change acount</a></li>
+				<li class="avartar_menu_item"><a href="/login/out">Logout</a></li>
+			</ul>
+		</div>
+	</header>
+	<link rel="stylesheet" href="http://localhost:3000/css/common.css">
+	<link rel="stylesheet" href="http://localhost:3000/css/head.css">
+	<link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+
+	<script type="text/javascript" src="http://localhost:3000/js/header.js"></script>
+	<script>
+		// set darkmode
+		// check cookies
+		var mode = getCookie("darkMode");
+		if(!(mode=="true" || mode=="false")){
+			document.cookie = "darkMode=false";
+		}else if (mode=="true") {
+			document.documentElement.className = "dark_mode";
+			document.querySelectorAll("img").forEach((e)=>{e.className = "clear_dark_mode"});
+		}
+		function getCookie(cname) {
+
+		  var name = cname + "=";
+		  var decodedCookie = decodeURIComponent(document.cookie);
+		  var ca = decodedCookie.split(';');
+		  for(var i = 0; i <ca.length; i++) {
+		    var c = ca[i];
+		    while (c.charAt(0) == ' ') {
+		      c = c.substring(1);
+		    }
+		    if (c.indexOf(name) == 0) {
+		      return c.substring(name.length, c.length);
+		    }
+		  }
+		  return "";
+		}
+		document.querySelector(".click").onclick = function(){
+			document.documentElement.classList.toggle("dark_mode");
+			document.querySelectorAll("img").forEach((e)=>{e.classList.toggle("clear_dark_mode")});
+			if(getCookie("darkMode")=="true"){
+				document.cookie = "darkMode=false"
+			}else{
+				document.cookie = "darkMode=true"
+			}
+		}
+
+		// hide avartar if noone login
+		if(!document.cookie.match("idUser")){
+			document.querySelector(".avartar").style.display = "none";
+			document.querySelector(".menu").style.display = "none";
+		}		
+	</script>

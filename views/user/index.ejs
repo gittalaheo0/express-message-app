@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./css/user.css">
+</head>
+<body>
+<%- include ("../layout/head.ejs") %>
+<main class="user">
+	<div class="user_search">
+		<form action="" method="">
+			<input type="text" placeholder="find someone">
+			<span class="user_search_btn">Find</span>
+		</form>
+	</div>
+	<div class="user_list">
+        <% users.forEach(function(item,index){ %>
+			<div class="user_list_item">
+				<a href="/users/<%= item.id %>">
+					<%if (item.infor.img.length == 0) { %>
+						<svg class="user_list_item_img" x="0px" y="0px"
+					 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><g><g><path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40c59.551,0,108,48.448,108,108S315.551,256,256,256z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg><% } %>
+					<%if (item.infor.img.length != 0) { %>
+						<img class="user_list_item_img" src="<%=item.infor.img%>" alt="">
+					<% } %>			
+					<p class="user_list_item_name"><%= item.name %></p>
+				</a>
+				<a href="/chat?id=<%= item.id %>" class="user_list_item_message">
+					<img src="./image/chat.png"alt="">
+				</a>
+			</div>
+        <% }) %>
+    </div>
+</main>
+</body>
+</html>

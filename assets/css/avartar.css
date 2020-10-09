@@ -1,0 +1,81 @@
+.profile{
+	width: 85%;
+	height: 90vh;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 0%)
+}
+.profile_avartar{
+	position: relative;
+	width: 18rem;
+	height: 18rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column
+}
+.user_list_item_message {
+	border-radius: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid rgba(0, 0, 0, .2);
+	transition: 0.3s;
+	transform: scale(0.3) translate(0, -130%)
+}
+.user_list_item_message img{
+	width: 2rem;
+}
+.user_list_item_message:hover{
+	background: #00bcd442;
+}
+.profile_avartar img{
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem;
+	margin-bottom: 0.5rem
+}
+.profile_avartar_name{
+	font-size: 4rem;
+	margin: 1rem 0;
+	font-weight: 600;
+	letter-spacing: 0.2rem;
+}
+.profile_info{
+	box-sizing: border-box;
+	padding: 2rem;
+	width: 60%;
+	font-size: 2rem
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: 'Update avartar';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+form button{
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+}
